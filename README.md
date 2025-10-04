@@ -1,2 +1,2 @@
-# devoir1_prog3
-# devoir1_prog3
+Exemple de code sur des cotes de jeux
+
