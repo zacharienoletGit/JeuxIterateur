@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AppplicationIterateurJeux
+namespace iterateur
 {
-    public class Jeu
+    public struct Jeu
     {
         public string Nom { get; set; }
         public int Cote { get; set; }
@@ -15,19 +15,18 @@ namespace AppplicationIterateurJeux
     public interface IJeuCoteIterator
     {
         Jeu JeuCourant { get; }
-        bool MoveNext();// Peux se faire en autrement
+        bool MoveNext();
     }
 
     public class JeuCoteIterator : IJeuCoteIterator
     {
-        private JeuCollection _copy; // on veut une copie pour pas altérer la collection initiale
+        private JeuCollection _collection; 
         private int _index;
 
         public JeuCoteIterator(JeuCollection collection)
         {
-            _copy = new JeuCollection();
-            _copy.AddRange(collection);             // copie des éléments
-            _copy.Sort((j2, j1) => j1.Cote.CompareTo(j2.Cote)); // tri par cote (j2 à j1 pour avoir du meilleur au moin bon)
+            _collection = new JeuCollection();
+            _collection.AddRange(collection);
             _index = -1; // démarre avant le premier élément
         }
 
@@ -37,23 +36,23 @@ namespace AppplicationIterateurJeux
             {
                 if (_index >= 0 && _index < _copy.Count)
                 {
-                    return _copy[_index];
+                    return _collection[_index];
                 }
                 else
                 {
-                    return null;
+                    return null; 
                 }
             }
         }
 
         public bool MoveNext()
         {
-            if (_copy.Count > _index + 1)
+            if (_collection.Count > _index + 1)
             {
                 _index++;
                 return true;
             }
-            return false;
+            return false; // S'il  y a juste une personne cca renvoie false
 
         }
 
@@ -66,4 +65,5 @@ namespace AppplicationIterateurJeux
             return new JeuCoteIterator(this);
         }
     }
+
 }
