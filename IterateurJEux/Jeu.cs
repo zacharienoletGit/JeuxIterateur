@@ -15,7 +15,7 @@ namespace AppplicationIterateurJeux
     public interface IJeuCoteIterator
     {
         Jeu JeuCourant { get; }
-        bool MoveNext();
+        bool MoveNext();// Peux se faire en autrement
     }
 
     public class JeuCoteIterator : IJeuCoteIterator
