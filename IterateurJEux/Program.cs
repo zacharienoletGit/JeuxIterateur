@@ -15,7 +15,7 @@
 
             IJeuCoteIterator iterateurCote = jeux.GetIterator();
 
-            while (iterateurCote.MoveNext())
+            while (iterateurCote.MoveNext()) // en fait c'est ce que fait FOREACH sur une collection!!
             {
                 Console.WriteLine($"{iterateurCote.JeuCourant.Nom} - Cote: {iterateurCote.JeuCourant.Nom}");
             }
