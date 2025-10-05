@@ -53,7 +53,7 @@ namespace AppplicationIterateurJeux
                 _index++;
                 return true;
             }
-            return false; // S'il  y a juste une personne cca rernvoie false
+            return false;
 
         }
 
