@@ -4,33 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iterateur
+namespace AppplicationIterateurPrison
 {
-    public struct Jeu
+    public class Prisonnier
     {
         public string Nom { get; set; }
-        public int Cote { get; set; }
+        public int CoteDanger { get; set; }
     }
 
-    public interface IJeuCoteIterator
+    public interface IPrisonIterator
     {
         Jeu JeuCourant { get; }
         bool MoveNext();
     }
 
-    public class JeuCoteIterator : IJeuCoteIterator
+    public class PrisonIterator : IPrisonIterator
     {
-        private JeuCollection _collection; 
+        private JeuCollection _collection; // on veut une copie pour pas altérer la collection initiale
         private int _index;
 
-        public JeuCoteIterator(JeuCollection collection)
+        public PrisonIterator(Prison collection)
         {
-            _collection = new JeuCollection();
-            _collection.AddRange(collection);
-            _index = -1; // démarre avant le premier élément
+            _collection = new Prison();
+            _collection.AddRange(collection);             // copie des éléments
+            _collection = -1; // démarre avant le premier élément
         }
 
-        public Jeu JeuCourant
+        public Prisonnier PrisonnierCourant
         {
             get
             {
@@ -40,30 +40,29 @@ namespace iterateur
                 }
                 else
                 {
-                    return null; 
+                    return null; // peux lever une exception si tu préfères
                 }
             }
         }
 
         public bool MoveNext()
         {
-            if (_collection.Count > _index + 1)
+            if (_copy.Count > _index + 1)
             {
                 _index++;
                 return true;
             }
-            return false; // S'il  y a juste une personne cca renvoie false
+            return false; // S'il  y a juste une personne cca rernvoie false
 
         }
 
     }
 
-    public class JeuCollection : List<Jeu>
+    public class Prison : List<Prisonnier>
     {
         public IJeuCoteIterator GetIterator()
         {
-            return new JeuCoteIterator(this);
+            return new PrisonIterator(this);
         }
     }
-
 }
