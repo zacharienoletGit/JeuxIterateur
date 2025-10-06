@@ -40,7 +40,7 @@ namespace AppplicationIterateurPrison
                 }
                 else
                 {
-                    return null; // peux lever une exception si tu préfères
+                    return null;
                 }
             }
         }
