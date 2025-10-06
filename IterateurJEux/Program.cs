@@ -1,23 +1,23 @@
-﻿namespace AppplicationIterateurJeux
+namespace AppplicationIterateurPrison
 {
     internal class Program
     {
 
         static void Main(string[] args)
         {
-            JeuCollection jeux = new JeuCollection
+            PrisonnierCollection prison = new Prison
             {
-                new Jeu { Nom = "RS6", Cote = 8 },
-                new Jeu { Nom = "Skyrim", Cote = 9 },
-                new Jeu { Nom = "PubG", Cote = 7 },
-                new Jeu { Nom = "Roblox", Cote = -2 }
+                new Jeu { Nom = "marcus", CoteDanger = 8 },
+                new Jeu { Nom = "Martin Matte", CoteDanger = 9 },
+                new Jeu { Nom = "Simon le Prof", CoteDanger = 7 },
+                new Jeu { Nom = "Roblox", CoteDanger = 16 }
             };
 
-            IJeuCoteIterator iterateurCote = jeux.GetIterator();
+            IPrissonierIterator iterateur = prison.GetIterator();
 
-            while (iterateurCote.MoveNext()) // en fait c'est ce que fait FOREACH sur une collection!!
+            while (iterateur.MoveNext())
             {
-                Console.WriteLine($"{iterateurCote.JeuCourant.Nom} - Cote: {iterateurCote.JeuCourant.Nom}");
+                Console.WriteLine($"{iterateur.PrisonnierCourant.Nom} - Cote: {iterateur.PrisonnierCourant.CoteDanger}");
             }
         }
     }
