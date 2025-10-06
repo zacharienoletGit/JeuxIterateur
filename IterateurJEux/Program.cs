@@ -5,7 +5,7 @@ namespace AppplicationIterateurPrison
 
         static void Main(string[] args)
         {
-            PrisonnierCollection prison = new Prison
+            Prison prison = new Prison
             {
                 new Prisonnier { Nom = "marcus", CoteDanger = 8 },
                 new Prisonnier { Nom = "Martin Matte", CoteDanger = 9 },
