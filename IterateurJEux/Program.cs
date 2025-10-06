@@ -13,7 +13,7 @@ namespace AppplicationIterateurPrison
                 new Prisonnier { Nom = "Roblox", CoteDanger = 16 }
             };
 
-            IPrisonierIterator iterateur = prison.GetIterator();
+            IPrisonIterator iterateur = prison.GetIterator();
 
             while (iterateur.MoveNext())
             {
