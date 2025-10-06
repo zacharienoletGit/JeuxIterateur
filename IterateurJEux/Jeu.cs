@@ -14,7 +14,7 @@ namespace AppplicationIterateurPrison
 
     public interface IPrisonIterator
     {
-        Jeu JeuCourant { get; }
+        Prisonnier PrisonierCourant { get; }
         bool MoveNext();
     }
 
