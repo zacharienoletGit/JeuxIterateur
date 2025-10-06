@@ -7,10 +7,10 @@ namespace AppplicationIterateurPrison
         {
             PrisonnierCollection prison = new Prison
             {
-                new Jeu { Nom = "marcus", CoteDanger = 8 },
-                new Jeu { Nom = "Martin Matte", CoteDanger = 9 },
-                new Jeu { Nom = "Simon le Prof", CoteDanger = 7 },
-                new Jeu { Nom = "Roblox", CoteDanger = 16 }
+                new Prisonnier { Nom = "marcus", CoteDanger = 8 },
+                new Prisonnier { Nom = "Martin Matte", CoteDanger = 9 },
+                new Prisonnier { Nom = "Simon le Prof", CoteDanger = 7 },
+                new Prisonnier { Nom = "Roblox", CoteDanger = 16 }
             };
 
             IPrissonierIterator iterateur = prison.GetIterator();
